@@ -1,4 +1,6 @@
 import Clarity from '../lib/engine';
+import Map from '../lib/map';
+import Block from '../lib/block';
 
 window.requestAnimFrame =
   window.requestAnimationFrame ||
@@ -22,9 +24,25 @@ var game = new Clarity({
 });
 
 var Loop = function () {
+  game.draw();
   window.requestAnimFrame(Loop);
 };
 
-game.update();
+class MyMap extends Map {
+  constructor() {
+    super({ });
+
+    this.blocks = [
+      Block
+    ];
+
+    this.mapData = [
+      [],
+      [0, 0, 0],
+    ]
+  }
+}
+
+game.loadMap(new MyMap());
 
 Loop();
