@@ -6,17 +6,14 @@
         "node": true
     },
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
         "sourceType": "module"
     },
     "rules": {
-        "no-const-assign": "warn",
-        "no-this-before-super": "warn",
+        "no-const-assign": "error",
+        "no-this-before-super": "error",
         "no-undef": "warn",
-        "no-unreachable": "warn",
-        "no-unused-vars": "warn",
+        "no-unreachable": "error",
+        "no-unused-vars": "error",
         "constructor-super": "warn",
         "valid-typeof": "warn"
     }

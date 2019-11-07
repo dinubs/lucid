@@ -1,4 +1,4 @@
-import Clarity from '../engine';
+import Clarity from '../lib/engine';
 
 window.requestAnimFrame =
   window.requestAnimationFrame ||
