@@ -14,20 +14,29 @@ import Player from './player.js';
 
 class Circular {
   constructor({
+    canvas,
     tileSize = 16,
     limitViewport = false,
+    logInfo = false,
     jumpSwitch = 0,
+    viewport = {
+      x: 200,
+      y: 200,
+    }
   }) {
-    this.logInfo = true;
+    if (!canvas) {
+      this.error('Canvas must be passed in');
+    }
+
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.logInfo = logInfo;
     this.tileSize = tileSize;
     this.limitViewport = limitViewport;
     this.jumpSwitch = jumpSwitch
     this.currentMap = null;
 
-    this.viewport = {
-      x: 200,
-      y: 200,
-    };
+    this.viewport = viewport;
 
     this.camera = {
       x: 0,
@@ -40,7 +49,7 @@ class Circular {
       up: false,
     };
 
-    this.player = new Player();
+    this.player = new Player(this);
 
     window.onkeydown = this.keydown.bind(this);
     window.onkeyup = this.keyup.bind(this);
@@ -116,6 +125,39 @@ class Circular {
 
     this.currentMap.height = map.data.length;
     this.currentMap.width = proposedWidth;
+
+    this.resetKeys();
+    this.resetCamera();
+    this.player.resetVelocity();
+
+    return true;
+  }
+
+  resetCamera() {
+    this.setCamera(0, 0);
+  }
+
+  setCamera(x, y) {
+    this.camera = { x, y };
+  }
+
+  resetKeys() {
+    this.key.left = false;
+    this.key.up = false;
+    this.key.down = false;
+  }
+
+  /**
+   * Only update the player for now, that's all that's necessary
+   */
+  update() {
+    if (!this.currentMap) {
+      this.error('Cannot call update without a map set.');
+      return false;
+    }
+
+    this.player.update();
+    return true;
   }
 }
 
