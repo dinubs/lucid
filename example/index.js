@@ -14,8 +14,8 @@ window.requestAnimFrame =
 
 var canvas = document.getElementById('canvas');
 
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 var game = new Clarity({
   alertErrors: true,
@@ -31,12 +31,13 @@ class TriggerBlock extends Block {
     this.color = '#bada55';
   }
 
-  script(game, player) {
+  script(game) {
     game.currentMap.setGravity(0, -0.3);
   }
 }
 
 var Loop = function () {
+  game.setViewport(canvas.width, canvas.height);
   game.update();
   game.draw();
   window.requestAnimFrame(Loop);
@@ -44,7 +45,10 @@ var Loop = function () {
 
 class MyMap extends Map {
   constructor() {
-    super({});
+    super({
+      backgroundColor: '#3e3e3e',
+      tileSize: 29,
+    });
 
     this.blocks = [
       Block,
