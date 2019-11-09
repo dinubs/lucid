@@ -1,6 +1,6 @@
 import Clarity from '../lib/engine';
 import Map from '../lib/map';
-import Block from '../lib/block';
+import Block from '../lib/blocks/block';
 
 window.requestAnimFrame =
   window.requestAnimationFrame ||
@@ -18,26 +18,44 @@ canvas.width = 400;
 canvas.height = 400;
 
 var game = new Clarity({
+  alertErrors: true,
   canvas,
-  limitViewport: true,
   logInfo: true,
 });
 
+class TriggerBlock extends Block {
+  constructor(game) {
+    super(game);
+
+    this.solid = false;
+    this.color = '#bada55';
+  }
+
+  script(game, player) {
+    game.currentMap.setGravity(0, -0.3);
+  }
+}
+
 var Loop = function () {
+  game.update();
   game.draw();
   window.requestAnimFrame(Loop);
 };
 
 class MyMap extends Map {
   constructor() {
-    super({ });
+    super({});
 
     this.blocks = [
-      Block
+      Block,
+      TriggerBlock
     ];
 
     this.mapData = [
       [],
+      [],
+      [],
+      [, , 1],
       [0, 0, 0],
     ]
   }
