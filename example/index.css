@@ -2,7 +2,36 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 canvas {
+}
+
+#map-selector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  background-color: rgba(30, 30, 30, 0.3);
+}
+
+#map-selector button {
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  color: #ddd;
+  text-align: left;
+  padding: 4px 8px;
+}
+
+.title {
+  color: #ddd;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #ddd;
 }

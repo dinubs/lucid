@@ -1,6 +1,5 @@
 import Clarity from '../lib/engine';
-import Map from '../lib/map';
-import Block from '../lib/blocks/block';
+import maps from './maps';
 
 window.requestAnimFrame =
   window.requestAnimationFrame ||
@@ -23,19 +22,6 @@ var game = new Clarity({
   logInfo: true,
 });
 
-class TriggerBlock extends Block {
-  constructor(game) {
-    super(game);
-
-    this.solid = false;
-    this.color = '#bada55';
-  }
-
-  script(game) {
-    game.currentMap.setGravity(0, -0.3);
-  }
-}
-
 var Loop = function () {
   game.setViewport(canvas.width, canvas.height);
   game.update();
@@ -43,28 +29,29 @@ var Loop = function () {
   window.requestAnimFrame(Loop);
 };
 
-class MyMap extends Map {
-  constructor() {
-    super({
-      backgroundColor: '#3e3e3e',
-      tileSize: 29,
-    });
-
-    this.blocks = [
-      Block,
-      TriggerBlock
-    ];
-
-    this.mapData = [
-      [],
-      [],
-      [],
-      [, , 1],
-      [0, 0, 0],
-    ]
-  }
-}
-
-game.loadMap(new MyMap());
+game.loadMap(new maps[0]());
 
 Loop();
+
+const mapDropdown = document.getElementById('map-selector');
+
+function formatMapName(name) {
+  var words = name.match(/[A-Za-z][a-z]*/g) || [];
+
+  return words.join(' ').replace('Map', '');
+}
+
+function setupMapDropdown() {
+  const mapItems = maps.map((map) => {
+    const mapItem = document.createElement('button');
+    mapItem.innerText = formatMapName(map.name);
+    mapItem.onclick = function () {
+      game.loadMap(new map());
+    }
+    return mapItem;
+  });
+
+  mapItems.forEach((item) => mapDropdown.appendChild(item));
+}
+
+setupMapDropdown();
