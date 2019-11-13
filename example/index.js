@@ -1,4 +1,4 @@
-import Clarity from '../lib/engine';
+import Lucid from '../lib/engine';
 import maps from './maps';
 
 window.requestAnimFrame =
@@ -16,7 +16,7 @@ var canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var game = new Clarity({
+var game = new Lucid({
   alertErrors: true,
   canvas,
   logInfo: true,

@@ -4,15 +4,15 @@ import KillerBlocksMap from './killer_blocks';
 
 export default [
   {
-    map: KillerBlocksMap,
-    title: 'Custom Block Rendering',
-  },
-  {
     map: BasicPlatformerMap,
     title: 'Basic Platformer',
   },
   {
     map: BlockScriptingMap,
     title: 'Block Scripting',
+  },
+  {
+    map: KillerBlocksMap,
+    title: 'Custom Block Rendering',
   },
 ];
