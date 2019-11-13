@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "example": "parcel example/index.html"
+    "example": "parcel example/index.html",
+    "now-build": "parcel build example/index.html"
   },
   "repository": {
     "type": "git",

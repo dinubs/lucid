@@ -29,22 +29,16 @@ var Loop = function () {
   window.requestAnimFrame(Loop);
 };
 
-game.loadMap(new maps[0]());
+game.loadMap(new maps[0].map());
 
 Loop();
 
 const mapDropdown = document.getElementById('map-selector');
 
-function formatMapName(name) {
-  var words = name.match(/[A-Za-z][a-z]*/g) || [];
-
-  return words.join(' ').replace('Map', '');
-}
-
 function setupMapDropdown() {
-  const mapItems = maps.map((map) => {
+  const mapItems = maps.map(({map, title}) => {
     const mapItem = document.createElement('button');
-    mapItem.innerText = formatMapName(map.name);
+    mapItem.innerText = title;
     mapItem.onclick = function () {
       game.loadMap(new map());
     }
