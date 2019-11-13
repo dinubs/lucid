@@ -1,8 +1,8 @@
 {
-  "name": "lucid",
-  "version": "1.0.0",
+  "name": "lucid-game-engine",
+  "version": "1.0.4",
   "description": "",
-  "main": "engine.js",
+  "main": "lib/index.js",
   "directories": {
     "example": "example"
   },
