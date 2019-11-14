@@ -35,3 +35,96 @@ canvas {
   font-size: 12px;
   border-bottom: 1px solid #ddd;
 }
+
+.github-corner {
+  position: fixed;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg)
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg)
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
+
+#info-button {
+  background-color: #000;
+  border-radius: 50%;
+  border: 0;
+  bottom: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 8px;
+  position: fixed;
+  right: 10px;
+  width: 32px;
+}
+
+#info-modal {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 4px rgba(30, 30, 30, 0.3);
+  color: #aeaeae;
+  display: none;
+  left: 50%;
+  max-width: 540px;
+  padding: 32px;
+  position: fixed;
+  top: 32px;
+  transform: translate(-50%, 0);
+  width: 90vw;
+}
+
+#info-modal.active {
+  display: block;
+}
+
+#close-modal {
+  background: transparent;
+  border: 0;
+  color: #ff6600;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+h1, h2 {
+  margin-bottom: 16px;
+}
+
+p:last-of-type {
+  margin-bottom: 16px;
+}
+
+a {
+  color: #ff6600;
+}
+
+ul {
+  margin-left: 32px;
+}

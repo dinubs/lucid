@@ -49,3 +49,15 @@ function setupMapDropdown() {
 }
 
 setupMapDropdown();
+
+const closeModal = document.getElementById('close-modal');
+const openModal = document.getElementById('info-button');
+const infoModal = document.getElementById('info-modal')
+
+closeModal.onclick = function () {
+  infoModal.classList.remove('active');
+}
+
+openModal.onclick = function () {
+  infoModal.classList.add('active');
+}

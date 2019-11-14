@@ -1,8 +1,8 @@
 # Lucid
 
-Lucid is a 2D Javascript game-engine, primarily for the platforming genre. Heavily based on the game-engine Dissimulate posted on both [GitHub](https://github.com/dissimulate/Clarity) and [CodePen](https://codepen.io/dissimulate/pen/CqIxk). It's quite evolved from that engine though, as things are much more broken apart now, and easier to extend onto.
+Lucid is a 2D Javascript game-engine, primarily for the platforming genre. Heavily based on the game-engine Dissimulate posted on both [GitHub](https://github.com/dissimulate/Clarity) and [CodePen](https://codepen.io/dissimulate/pen/CqIxk) name Clarity. It's quite evolved from that engine, as things are much more broken apart now, and easier to extend on. The benefit of a lightweight engine like Lucid is to get a playable version as fast as possible that you can build upon.
 
-There are a handful of [code examples](https://github.com/dinubs/lucid) and examples you can [play](https://lucid.dinubs.now.sh).
+There are a handful of [code examples](https://github.com/dinubs/lucid/tree/master/example) (I've done my best to comment as much as possible) and examples you can [play](https://lucid.dinubs.now.sh).
 
 # Install and Use
 
@@ -66,7 +66,7 @@ game.loadMap(new MyCustomMap());
 Loop();
 ```
 
-I personally suggest using [Parcel](https://parceljs.org/) to get things up and running, it's very straight forward. You can also find more examples in the examples directory, and run them using `npm run example` when you clone the repo (it uses Parcel to run).
+I personally suggest using [Parcel](https://parceljs.org/) to get things up and running, it's very straight forward. Check out the [example](https://github.com/dinubs/lucid/tree/master/example) directory for how it works, and run them using `npm run example` when you clone the repo (it uses Parcel to run).
 
 
 # TODO
