@@ -10,3 +10,4 @@ There are a handful of [code examples](https://github.com/dinubs/lucid) and exam
 - [ ] Particle engine
 - [ ] Entities (Think NPCs and enemies that the player can interact with).
 - [ ] Allow adding a custom player class to the game, will be easy to do, but forgot to integrate it.
+- [ ] Allow setting a custom EmptyBlock per map, that way you can do any custom rendering on the block you want.

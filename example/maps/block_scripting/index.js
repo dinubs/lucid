@@ -1,5 +1,13 @@
+// This map shows off a basic script function that you
+// can implement in your map.
+
+// Import Block and Map, in yours this would be
+// import { Block, Map } from 'lucid-game-engine';
 import { Block, Map } from '../../../lib';
 
+// TriggerBlock is a pretty generic block name, 
+// but it basically has a script trigger to it
+// that reverses the gravity on it.
 class TriggerBlock extends Block {
   constructor(game) {
     super(game);
@@ -8,6 +16,7 @@ class TriggerBlock extends Block {
     this.color = '#bada55';
   }
 
+  // Reverse the vertical gravity that's present
   script(game) {
     game.player.setVelocity(game.currentMap.gravity.y, 0);
     game.currentMap.setGravity(0, -game.currentMap.gravity.y);
