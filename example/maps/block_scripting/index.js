@@ -1,6 +1,18 @@
-import Block from '../../../lib/blocks/block';
-import Map from '../../../lib/map';
-import TriggerBlock from './trigger_block';
+import { Block, Map } from '../../../lib';
+
+class TriggerBlock extends Block {
+  constructor(game) {
+    super(game);
+
+    this.solid = false;
+    this.color = '#bada55';
+  }
+
+  script(game) {
+    game.player.setVelocity(game.currentMap.gravity.y, 0);
+    game.currentMap.setGravity(0, -game.currentMap.gravity.y);
+  }
+}
 
 class BlockScriptingMap extends Map {
   constructor() {

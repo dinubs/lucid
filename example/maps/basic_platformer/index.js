@@ -1,5 +1,4 @@
-import Block from "../../../lib/blocks/block";
-import Map from "../../../lib/map";
+import { Block, Map } from '../../../lib';
 
 class JumpBlock extends Block {
   constructor(game) {

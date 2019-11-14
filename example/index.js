@@ -1,4 +1,4 @@
-import Lucid from '../lib/engine';
+import { Lucid } from '../lib';
 import maps from './maps';
 
 window.requestAnimFrame =
@@ -36,7 +36,7 @@ Loop();
 const mapDropdown = document.getElementById('map-selector');
 
 function setupMapDropdown() {
-  const mapItems = maps.map(({map, title}) => {
+  const mapItems = maps.map(({ map, title }) => {
     const mapItem = document.createElement('button');
     mapItem.innerText = title;
     mapItem.onclick = function () {

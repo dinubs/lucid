@@ -1,5 +1,4 @@
-import Block from "../../../lib/blocks/block";
-import Map from "../../../lib/map";
+import { Block, Map } from '../../../lib';
 
 class KillerBlock extends Block {
   constructor(game) {
@@ -37,6 +36,35 @@ class LavaBlock extends KillerBlock {
   }
 }
 
+class RainbowBlock extends Block {
+  constructor(game) {
+    super(game);
+
+    this.solid = false;
+    this.jump = false;
+  }
+
+  draw(x, y, context) {
+    const tileSize = this.game.currentMap.tileSize;
+    const halfTileSize = tileSize / 2;
+    const bars = 4;
+    let radius = halfTileSize;
+    context.lineWidth = 3;
+
+    for (let i = 0; i < bars; i++ , radius -= context.lineWidth - 1) {      // increase bar, reduce radius
+      context.beginPath();
+      context.arc(x + halfTileSize, y + tileSize, radius, 0, Math.PI, true); // half circle
+      context.strokeStyle = `hsl(${i / bars * 300},90%,50%)`;  // set color using HSL
+      context.stroke();
+    }
+  }
+
+  script() {
+    this.game.currentMap.backgroundColor = `hsl(${(Math.random() * 360)},30%,60%)`;
+  }
+}
+
+
 class KillerBlocksMap extends Map {
   constructor() {
     super({
@@ -52,14 +80,14 @@ class KillerBlocksMap extends Map {
       }
     });
 
-    this.blocks = [Block, SpikeBlock, LavaBlock];
+    this.blocks = [Block, SpikeBlock, LavaBlock, RainbowBlock];
 
     this.mapData = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, , , , , , , , , , , , , , , , , , 0],
       [0, , , , , , , , , , , , , , , , , , 0],
       [0, , , , , , , , , , , , , , , , , , 0],
-      [0, , , , , 1, , , 0, 2, 2, 2, 0, , , , , , 0],
+      [0, , , , , 1, , , 0, 2, 2, 2, 0, , , , 3, , 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
   }
