@@ -8,7 +8,7 @@ There are a handful of [code examples](https://github.com/dinubs/lucid) and exam
 
 You can install the engine with `npm install lucid-game-engine`. Then you can use the package like the below.
 
-```
+```javascript
 import { Lucid, Map, Block } from 'lucid-game-engine';
 
 var canvas = document.getElementById('canvas');
